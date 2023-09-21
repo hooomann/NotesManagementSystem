@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="card">
+    <h2 class="login-title">Sign Up</h2>
+    <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)">
+      <div class="form-group">
+        <label for="userName">Username</label>
+        <input
+          type="text"
+          [(ngModel)]="userName"
+          name="userName"
+          id="userName"
+          class="form-control"
+          placeholder="Enter your username"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="userFirstName">First Name</label>
+        <input
+          type="text"
+          [(ngModel)]="userFirstName"
+          name="userFirstName"
+          id="userFirstName"
+          class="form-control"
+          placeholder="Enter your first name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="userLastName">Last Name</label>
+        <input
+          type="text"
+          [(ngModel)]="userLastName"
+          name="userLastName"
+          id="userLastName"
+          class="form-control"
+          placeholder="Enter your last name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="userPassword">Password</label>
+        <input
+          type="password"
+          [(ngModel)]="userPassword"
+          name="userPassword"
+          id="userPassword"
+          class="form-control"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="login-btn">Sign Up</button>
+      </div>
+    </form>
+
+    <!-- Display error message if present -->
+    <div class="alert alert-danger mt-3" *ngIf="message">{{ message }}</div>
+  </div>
+</div>

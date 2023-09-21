@@ -1,0 +1,81 @@
+.recent-notes {
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 10px;
+  cursor: pointer;
+  width: 300px;
+}
+
+.note-card:hover {
+  background-color: #6db3e2;
+}
+
+.note-details {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: flex-start; /* Align content to the top */
+}
+.note-details-container {
+  width: 80%; /* Adjust the width as needed */
+  max-width: 800px; /* Optional: Set a maximum width */
+}
+
+.note-card h3 {
+  color: #333;
+}
+
+.note-card p {
+  margin: 5px 0;
+}
+
+.note-details button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.note-details button:hover {
+  background-color: #45a049;
+}
+
+.note-details label {
+  font-weight: bold;
+}
+
+.note-details input[type="text"],
+.note-details textarea {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.note-details input[type="text"] {
+  width: 100%;
+}
+
+.note-details textarea {
+  width: 100%;
+  height: 100px;
+}

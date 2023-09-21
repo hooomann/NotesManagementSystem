@@ -1,0 +1,84 @@
+<div class="recent-notes">
+  <h2>Recent Notes</h2>
+
+  <div class="note-list">
+    <div
+      class="note-card"
+      *ngFor="let note of recentNotes"
+      (click)="showNoteDetails(note)"
+    >
+      <a>{{ note.title }}</a>
+      <p>{{ note.content }}</p>
+      <p>{{ note.important }}</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedNote" class="note-details">
+  <div class="note-details-container">
+    <h2>Note Details</h2>
+    <div class="note-card">
+      <h3>Title:{{ selectedNote.title }}</h3>
+      <p>Content:{{ selectedNote.content }}</p>
+      <p>Important Date:{{ selectedNote.important }}</p>
+      <p>Created Time: {{ selectedNote.createdTime }}</p>
+      <p>Created Date: {{ selectedNote.createdDate }}</p>
+      <p>Last updated Time: {{ selectedNote.modifiedTime }}</p>
+      <p>Last updated Date: {{ selectedNote.modifiedDate }}</p>
+
+      <div *ngIf="isEditing">
+        <!-- Include input fields to edit title and important attributes -->
+        <label>Title</label>
+        <input
+          type="text"
+          name="title"
+          [(ngModel)]="selectedNote.title"
+          required
+          #titleInput="ngModel"
+          pattern="^[A-Za-z@;&*+\-\s]*$"
+        />
+        <div
+          *ngIf="showErrorMessage(titleInput)"
+          class="error-message"
+          style="color: red"
+        >
+          Invalid characters. Please use only @, ;, &, *, +, -, and alphabets.
+        </div>
+        <label>Content</label>
+        <textarea
+          [(ngModel)]="selectedNote.content"
+          name="content"
+          cols="30"
+          rows="10"
+          required
+          #contentInput="ngModel"
+          pattern="^[A-Za-z@;&*+\-\s]*$"
+        ></textarea>
+        <div
+          *ngIf="showErrorMessage(contentInput)"
+          class="error-message"
+          style="color: red"
+        >
+          Invalid characters. Please use only @, ;, &, *, +, -, and alphabets.
+        </div>
+        <label>Important Date</label>
+        <input
+          type="text"
+          name="important"
+          [(ngModel)]="selectedNote.important"
+          required
+        />
+
+        <button (click)="updateNote()" [disabled]="!updateFormValid()">
+          Update
+        </button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </div>
+
+      <div *ngIf="!isEditing">
+        <button (click)="editNote()">Edit</button>
+        <button (click)="deleteNote()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

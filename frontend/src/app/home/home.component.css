@@ -1,0 +1,111 @@
+/* Add this CSS to your styles.css or component-specific CSS file */
+
+/* Background Image */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("C:/Users/mannchitransh/Downloads/whiteeagle.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+/* Navbar container */
+.navbar {
+  background-color: #6db3e2;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Navbar brand link */
+.navbar-brand a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* Navbar toggle button */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.navbar-toggle span {
+  background-color: #fff;
+  height: 3px;
+  width: 30px;
+  margin: 3px 0;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+/* Navbar menu */
+.navbar-menu {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ccc;
+}
+
+/* Active class for menu */
+.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  /* Show/hide menu items on smaller screens */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #f9fcfe;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}

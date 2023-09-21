@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="add-note-card">
+    <h2>Add Note</h2>
+    <form #noteForm="ngForm" (ngSubmit)="addNote()">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          [(ngModel)]="newNote.title"
+          required
+          #titleInput="ngModel"
+          pattern="^[A-Za-z@;&*+\-\s]*$"
+        />
+        <!-- Display error message for invalid characters -->
+        <div
+          *ngIf="showErrorMessage(titleInput)"
+          class="error-message"
+          style="color: red"
+        >
+          Invalid characters. Please use only @, ;, &, *, +, -, and alphabets.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea
+          class="form-control"
+          id="content"
+          name="content"
+          [(ngModel)]="newNote.content"
+          required
+          #contentInput="ngModel"
+          pattern="^[A-Za-z@;&*+\-\s]*$"
+        ></textarea>
+        <!-- Display error message for invalid characters -->
+        <div
+          *ngIf="showErrorMessage(contentInput)"
+          class="error-message"
+          style="color: red"
+        >
+          Invalid characters. Please use only @, ;, &, *, +, -, and alphabets.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="important">Important:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="important"
+          name="important"
+          [(ngModel)]="newNote.important"
+        />
+      </div>
+      <div class="button-group">
+        <button type="button" class="back-btn" (click)="goBack()">Back</button>
+        <button type="submit" class="add-note-btn">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

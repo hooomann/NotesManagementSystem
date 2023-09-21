@@ -1,0 +1,31 @@
+<!-- home.component.html -->
+
+<div class="background-image"></div>
+
+<nav class="navbar">
+  <div class="navbar-brand" *ngIf="!isLoggedIn()">
+    <a routerLink="/">Notepad</a>
+  </div>
+  <div class="navbar-brand" *ngIf="isLoggedIn()">
+    <a routerLink="/notes">Notepad</a>
+  </div>
+  <div class="navbar-toggle" (click)="toggleNavbar()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="navbar-menu" [class.active]="isNavbarOpen">
+    <li class="nav-item" *ngIf="!isLoggedIn() && !isLoginPage()">
+      <a class="nav-link" routerLink="/">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="!isLoggedIn() && !isSignUpPage()">
+      <a class="nav-link" routerLink="/signup">Signup</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn() && !isAddNotePage()">
+      <a class="nav-link" routerLink="/addNote">Add a Note</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn()">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</nav>
